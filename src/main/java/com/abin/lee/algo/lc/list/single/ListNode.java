@@ -123,7 +123,43 @@ public class ListNode {
      * 在单链表尾部插入新元素
      */
     @Test
-    public void testSingle5(){
+    public void testSingleDelete1(){
+        int[] arr = new int[10];
+
+        for (int i = 0; i <10 ; i++) {
+            arr[i] = i;
+        }
+        System.out.println("arr="+JsonUtil.toJson(arr));
+        ListNode listNode = createLinkedList(arr) ;
+        System.out.println("listNode="+ JsonUtil.toJson(listNode));
+        ListNode listNodeNew = endInsertLinkedList(listNode);
+        System.out.println("listNodeNew="+ JsonUtil.toJson(listNodeNew));
+
+    }
+
+    /**
+     * 在单链表尾部插入新元素
+     * @param head
+     * @return
+     */
+    public static ListNode endInsertLinkedList(ListNode head){
+
+        ListNode cur = head ;
+        while(null != cur.next){
+            cur = cur.next;
+        }
+        cur.next = new ListNode(999);
+
+        return head;
+    }
+
+
+
+    /**
+     * 在单链表尾部插入新元素
+     */
+    @Test
+    public void testSingle6(){
         int[] arr = new int[10];
 
         for (int i = 0; i <10 ; i++) {
@@ -138,20 +174,17 @@ public class ListNode {
     }
 
     /**
-     * 在单链表尾部插入新元素
+     *在单链表尾部插入新元素
      * @param head
      * @return
      */
-    public static ListNode endInsertLinkedList(ListNode head){
+    public static ListNode endInsertLinkedListaa(ListNode head){
 
         ListNode newHead = new ListNode(-1);
         newHead.next = head ;
         head = newHead;
         return head;
     }
-
-
-
 
 
 

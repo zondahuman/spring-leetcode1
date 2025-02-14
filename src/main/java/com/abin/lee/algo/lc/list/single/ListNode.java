@@ -156,38 +156,76 @@ public class ListNode {
 
 
     /**
-     * 在单链表尾部插入新元素
+     * 在单链表中间插入新元素
      */
     @Test
-    public void testSingle6(){
-        int[] arr = new int[10];
-
-        for (int i = 0; i <10 ; i++) {
-            arr[i] = i;
+    public void testSingleInsert6(){
+        // 创建一条单链表
+        ListNode head = createLinkedList(new int[]{1, 2, 3, 4, 5});
+        System.out.println("head="+ JsonUtil.toJson(head));
+        ListNode cur = head;
+        for(int i=0;i<2;i++){
+            cur = cur.next;
         }
-        System.out.println("arr="+JsonUtil.toJson(arr));
-        ListNode listNode = createLinkedList(arr) ;
-        System.out.println("listNode="+ JsonUtil.toJson(listNode));
-        ListNode listNodeNew = headInsertLinkedList(listNode);
-        System.out.println("listNodeNew="+ JsonUtil.toJson(listNodeNew));
-
+        System.out.println("cur="+ JsonUtil.toJson(cur));
+        ListNode mid = new ListNode(666);
+         mid.next = cur.next;
+         cur.next = mid;
+        System.out.println("cur="+ JsonUtil.toJson(cur));
+        System.out.println("head="+ JsonUtil.toJson(head));
     }
 
     /**
-     *在单链表尾部插入新元素
-     * @param head
-     * @return
+     * 在单链表中删除一个节点
      */
-    public static ListNode endInsertLinkedListaa(ListNode head){
+    @Test
+    public void testSingleDelete2(){
+        // 创建一条单链表
+        ListNode head = createLinkedList(new int[]{1, 2, 3, 4, 5});
+        System.out.println("head="+ JsonUtil.toJson(head));
+        ListNode cur = head;
+        for(int i=0;i<2;i++){
+            cur = cur.next;
+        }
 
-        ListNode newHead = new ListNode(-1);
-        newHead.next = head ;
-        head = newHead;
-        return head;
+        cur.next = cur.next.next;
+        System.out.println("cur="+ JsonUtil.toJson(cur));
+        System.out.println("head="+ JsonUtil.toJson(head));
     }
 
 
+    /**
+     * 在单链表中删除一个节点
+     */
+    @Test
+    public void testSingleDelete3(){
+        // 创建一条单链表
+        ListNode head = createLinkedList(new int[]{1, 2, 3, 4, 5});
+        System.out.println("head="+ JsonUtil.toJson(head));
+        ListNode cur = head;
+        while(cur.next.next != null){
+            cur = cur.next;
+        }
 
+        cur.next = null;
+        System.out.println("cur="+ JsonUtil.toJson(cur));
+        System.out.println("head="+ JsonUtil.toJson(head));
+    }
+
+    /**
+     * 在单链表头部删除元素
+     */
+    @Test
+    public void testSingleDelete4(){
+        // 创建一条单链表
+        ListNode head = createLinkedList(new int[]{1, 2, 3, 4, 5});
+        System.out.println("head="+ JsonUtil.toJson(head));
+        ListNode cur = head;
+        cur = cur.next;
+        head = cur;
+        System.out.println("cur="+ JsonUtil.toJson(cur));
+        System.out.println("head="+ JsonUtil.toJson(head));
+    }
 
 
 

@@ -230,5 +230,39 @@ public class DoubleListNode {
     }
 
 
+    // 在双链表尾部删除元素
+    @Test
+    public void test9(){
+        DoubleListNode head = createDoubleListNode(new int[]{1, 2, 3, 4, 5, 6,7,8,9});
+        DoubleListNode tail  = null;
+        DoubleListNode temp = head ;
+//        System.out.println("head="+ JsonUtil.toJson(head));
+//        for(DoubleListNode cur = head; null != cur ; cur=cur.next){
+//            System.out.println("forward="+cur.val);
+//            tail = cur;
+//        }
+        while (temp.next != null) {
+            tail = temp;
+            temp = temp.next ;
+        }
+        DoubleListNode toDelete  = head;
+        temp.prev = null ;
+        tail.next = null;
+
+//        head = tail;
+        System.out.println("-----------------------------------------------------");
+        for(DoubleListNode cur = head; null != cur ; cur=cur.next){
+            System.out.println("middle="+cur.val);
+            tail = cur;
+        }
+        System.out.println("-----------------------------------------------------");
+        for(DoubleListNode cur = tail; null != cur ; cur=cur.prev){
+            System.out.println("previous="+cur.val);
+        }
+    }
+
+
+
+
 
 }

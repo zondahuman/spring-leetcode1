@@ -1,6 +1,5 @@
 package com.abin.lee.algo.lc.bst.dfs;
 
-import com.abin.lee.algo.lc.bst.TreeNode;
 
 public class TreeNodeDfs {
 
@@ -12,15 +11,15 @@ public class TreeNodeDfs {
 //   2   3
 //  /   / \
 // 4   5   6
-    public static TreeNode createTreeNode(){
-        TreeNode root = new TreeNode(1);
-        root.setLeft(new TreeNode(2));
-        root.setRight(new TreeNode(3));
-        root.getLeft().setLeft(new TreeNode(4));
-        root.getRight().setLeft(new TreeNode(5));
-        root.getRight().setRight(new TreeNode(6));
-        return root;
-    }
+//    public static TreeNode createTreeNode(){
+//        TreeNode root = new TreeNode(1);
+//        root.setLeft(new TreeNode(2));
+//        root.setRight(new TreeNode(3));
+//        root.getLeft().setLeft(new TreeNode(4));
+//        root.getRight().setLeft(new TreeNode(5));
+//        root.getRight().setRight(new TreeNode(6));
+//        return root;
+//    }
 
 
 

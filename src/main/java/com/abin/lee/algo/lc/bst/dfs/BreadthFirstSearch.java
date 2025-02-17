@@ -53,12 +53,44 @@ public class BreadthFirstSearch {
         }
     }
 
+    //队列实现广度遍历
     @Test
     public void test1(){
         TreeNode treeNode = createTreeNode();
         this.levelOrderTraverse(treeNode);
     }
 
+
+    //比方说让你收集每一层的节点，或者计算二叉树的最小深度等等。
+    public void levelOrderTraverse2(TreeNode root){
+        if(null == root){
+            return;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int depth = 1;
+        while(!queue.isEmpty()){
+            int sz = queue.size() ;
+            for (int i = 0; i <sz ; i++) {
+                TreeNode cur = queue.poll() ;
+                System.out.println("i="+i+",val="+cur.val);
+                if(null != cur.left){
+                    queue.offer(cur.left);
+                }
+                if(null != cur.right){
+                    queue.offer(cur.right);
+                }
+            }
+            depth++ ;
+        }
+    }
+
+    //队列实现广度遍历，
+    @Test
+    public void test2(){
+        TreeNode treeNode = createTreeNode();
+        this.levelOrderTraverse2(treeNode);
+    }
 
 
 }

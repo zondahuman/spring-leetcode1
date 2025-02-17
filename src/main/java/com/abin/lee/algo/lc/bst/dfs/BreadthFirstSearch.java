@@ -1,6 +1,5 @@
 package com.abin.lee.algo.lc.bst.dfs;
 
-import com.abin.lee.algo.lc.bst.TreeNode;
 import lombok.Data;
 import org.junit.Test;
 
@@ -10,11 +9,11 @@ import java.util.Queue;
 @Data
 public class BreadthFirstSearch {
 
-    class TreeNode {
+   static class TreeNode {
         int val;
         TreeNode left, right;
 
-        public TreeNode(int val) {
+        TreeNode(int val) {
             this.val = val;
         }
     }

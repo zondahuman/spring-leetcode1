@@ -18,6 +18,15 @@ public class BreadthFirstSearch {
         }
     }
 
+    static class State{
+       TreeNode node ;
+       int depth;
+       State(TreeNode node, int depth){
+           this.node = node ;
+           this.depth = depth ;
+       }
+    }
+
     // 你可以这样构建一棵二叉树：
     // 构建出来的二叉树是这样的：
 //     1
@@ -92,5 +101,33 @@ public class BreadthFirstSearch {
         this.levelOrderTraverse2(treeNode);
     }
 
+
+
+
+    public void levelOrderTraverse3(TreeNode root){
+       if(null == root){
+           return;
+       }
+       Queue<State> queue = new LinkedList<>() ;
+       queue.offer(new State(root,1));
+       while(!queue.isEmpty()){
+           State cur = queue.poll() ;
+           System.out.println("depth="+cur.depth+",val="+cur.node.val);
+
+           if(cur.node.left != null){
+               queue.offer(new State(cur.node.left, cur.depth+1))
+           }
+
+            if(cur.node.right != null){
+                queue.offer(new State(cur.node.right, cur.depth+1));
+            }
+       }
+    }
+
+    @Test
+    public void test3(){
+        TreeNode treeNode = createTreeNode();
+        this.levelOrderTraverse3(treeNode);
+    }
 
 }

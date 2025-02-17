@@ -115,7 +115,7 @@ public class BreadthFirstSearch {
            System.out.println("depth="+cur.depth+",val="+cur.node.val);
 
            if(cur.node.left != null){
-               queue.offer(new State(cur.node.left, cur.depth+1))
+               queue.offer(new State(cur.node.left, cur.depth+1));
            }
 
             if(cur.node.right != null){

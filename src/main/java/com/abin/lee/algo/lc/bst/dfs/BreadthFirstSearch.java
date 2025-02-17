@@ -2,6 +2,10 @@ package com.abin.lee.algo.lc.bst.dfs;
 
 import com.abin.lee.algo.lc.bst.TreeNode;
 import lombok.Data;
+import org.junit.Test;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 @Data
 public class BreadthFirstSearch {
@@ -32,9 +36,29 @@ public class BreadthFirstSearch {
         return root;
     }
 
+    public void levelOrderTraverse(TreeNode root){
+        if(null == root){
+            return;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            TreeNode cur = queue.poll() ;
+            System.out.println("val="+cur.val);
+            if(cur.left != null){
+                queue.offer(cur.left) ;
+            }
+            if(cur.right != null){
+                queue.offer(cur.right);
+            }
+        }
+    }
 
-
-
+    @Test
+    public void test1(){
+        TreeNode treeNode = createTreeNode();
+        this.levelOrderTraverse(treeNode);
+    }
 
 
 

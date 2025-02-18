@@ -1,4 +1,4 @@
-package com.abin.lee.algo.lc.bst;
+package com.abin.lee.algo.lc.bst.common;
 
 import lombok.Data;
 

@@ -11,6 +11,6 @@ public class GraphNode {
     //martrix[x][y]记录x是否有一条指向y的边
     boolean[][] matrix ;
 
-    
+
 
 }

@@ -1,7 +1,5 @@
 package com.abin.lee.algo.lc.bst.solution;
 
-import com.abin.lee.algo.lc.bst.dfs.BreadthFirstSearch;
-import com.abin.lee.algo.lc.bst.dfs.DepthFirstSearch;
 import org.junit.Test;
 
 /**

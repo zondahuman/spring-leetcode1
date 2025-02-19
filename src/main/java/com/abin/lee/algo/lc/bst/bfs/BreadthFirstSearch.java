@@ -1,4 +1,4 @@
-package com.abin.lee.algo.lc.bst.dfs;
+package com.abin.lee.algo.lc.bst.bfs;
 
 import lombok.Data;
 import org.junit.Test;

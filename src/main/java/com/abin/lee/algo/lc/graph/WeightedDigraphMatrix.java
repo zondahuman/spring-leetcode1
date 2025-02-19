@@ -1,9 +1,14 @@
 package com.abin.lee.algo.lc.graph;
 
+import com.sun.org.apache.bcel.internal.generic.RETURN;
+
 import java.util.ArrayList;
 import java.util.List;
 
-// 有向加权图（邻接矩阵实现）
+/**
+ * // 加权有向图的通用实现（邻接矩阵）
+ * 有向加权图（邻接矩阵实现）
+  */
 public class WeightedDigraphMatrix {
 
     // 存储相邻节点及边的权重
@@ -16,54 +21,41 @@ public class WeightedDigraphMatrix {
             this.weight = weight;
         }
     }
-    // 邻接表，graph[v] 存储节点 v 的所有邻居节点及对应权重
-    private List<Edge>[] graph ;
+    // 邻接矩阵，matrix[from][to] 存储从节点 from 到节点 to 的边的权重
+    // 0 表示没有连接
+    private int[][] matrix;
 
     public WeightedDigraphMatrix(int n){
-        // 我们这里简单起见，建图时要传入节点总数，这其实可以优化
-        // 比如把 graph 设置为 Map<Integer, List<Edge>>，就可以动态添加新节点了
-        graph = new List[n];
-        for (int i = 0; i <n ; i++) {
-            graph[i] = new ArrayList<>();
-        }
+       matrix = new int[][];
     }
 
-    // 增，添加一条带权重的有向边，复杂度 O(1)
+    //增，添加一条带权重的有向边，复杂度 O(1)
     public void addEdge(int from, int to, int weight){
-        graph[from].add(new Edge(to, weight));
+        matrix[from][to] = weight ;
     }
     // 删，删除一条有向边，复杂度 O(V)
     public void removeEdge(int from, int to){
-        for (int i = 0; i <graph[from].size() ; i++) {
-            if(graph[from].get(i).to == to){
-                graph[from].remove(i);
-                break;
-            }
-        }
+       matrix[from][to] = 0;
     }
     // 查，判断两个节点是否相邻，复杂度 O(V)
     public boolean hasEdge(int from, int to){
-        for(Edge edge:graph[from]){
-            if(edge.to == to){
-                return true;
-            }
-        }
-        return false;
+        return matrix[from][to] != 0 ;
     }
 
     // 查，返回一条边的权重，复杂度 O(V)
     public int weight(int from, int to){
-        for(Edge edge:graph[from]){
-            if(edge.to == to){
-                return edge.weight;
-            }
-        }
-        throw new IllegalArgumentException("No such edge");
+        return matrix[from][to];
     }
 
     // 查，返回某个节点的所有邻居节点，复杂度 O(1)
     public List<Edge> neighbors(int from){
-        return graph[from];
+        List<Edge> result = new ArrayList<>();
+        for (int i = 0; i <matrix[from].length ; i++) {
+            if(matrix[from][i] > 0){
+                result.add(new Edge(i, matrix[from][i]));
+            }
+        }
+        return result;
     }
 
 

@@ -1,6 +1,5 @@
 package com.abin.lee.algo.lc.graph;
 
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +25,7 @@ public class WeightedDigraphMatrix {
     private int[][] matrix;
 
     public WeightedDigraphMatrix(int n){
-       matrix = new int[][];
+       matrix = new int[n][n];
     }
 
     //增，添加一条带权重的有向边，复杂度 O(1)

@@ -1,5 +1,8 @@
 package com.abin.lee.algo.leetcode.questions.list;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * https://leetcode.cn/problems/intersection-of-two-linked-lists/
  *
@@ -30,6 +33,23 @@ public class OneSixZeroIntersectionofTwoLinkedLists {
            }
        }
        return p1;
+    }
+
+    public ListNode getIntersectionNode2(ListNode headA, ListNode headB) {
+        Set<ListNode> sets = new HashSet<>();
+        ListNode temp = headA;
+        while(null != temp){
+            sets.add(temp);
+            temp = temp.next;
+        }
+        temp = headB;
+        while(null != temp){
+            if(sets.contains(temp)){
+                return temp;
+            }
+            temp = temp.next;
+        }
+        return null;
     }
 
 }

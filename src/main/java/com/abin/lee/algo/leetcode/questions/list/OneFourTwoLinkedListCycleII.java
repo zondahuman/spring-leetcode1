@@ -17,15 +17,21 @@ public class OneFourTwoLinkedListCycleII {
     public ListNode detectCycle(ListNode head) {
         if(null == head || null == head.next)
             return null;
-        ListNode slow = head.next;
-        ListNode fast = head.next.next;
+        ListNode slow = head;
+        ListNode fast = head;
         while(null !=fast && null != fast.next){
+            slow = slow.next ;
+            fast = fast.next.next;
             if(slow == fast){
-
+                break;
             }
         }
-
-        return null;
+        slow = head ;
+        while(slow != fast){
+            slow = slow.next ;
+            fast = fast.next;
+        }
+        return slow;
     }
 
 }

@@ -26,6 +26,9 @@ public class OneFourTwoLinkedListCycleII {
                 break;
             }
         }
+        if(null == fast || null == fast.next){
+            return null;
+        }
         slow = head ;
         while(slow != fast){
             slow = slow.next ;

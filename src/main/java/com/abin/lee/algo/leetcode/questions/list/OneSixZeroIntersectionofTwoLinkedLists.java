@@ -2,7 +2,7 @@ package com.abin.lee.algo.leetcode.questions.list;
 
 /**
  * https://leetcode.cn/problems/intersection-of-two-linked-lists/
- * 
+ *
  */
 public class OneSixZeroIntersectionofTwoLinkedLists {
     // Definition for singly-linked list.

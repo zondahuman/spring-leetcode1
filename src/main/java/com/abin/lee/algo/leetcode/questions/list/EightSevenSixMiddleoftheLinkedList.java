@@ -17,15 +17,21 @@ public class EightSevenSixMiddleoftheLinkedList {
     }
 
     public ListNode middleNode(ListNode head) {
-        if(null == head)
+        if (null == head)
             return null;
-        ListNode slow = head ;
-        ListNode fast = head ;
-        while(fast != null && fast.next != null){
-            slow = slow.next ;
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
             fast = fast.next.next;
         }
-        return null;
+        if (fast != null && fast.next == null) {
+            return slow;
+        } else if(fast == null || fast.next == null) {
+            return slow;
+        }else{
+            return slow;
+        }
     }
 
 

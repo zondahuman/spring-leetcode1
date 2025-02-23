@@ -19,7 +19,24 @@ public class EightTwoRemoveDuplicatesfromSortedListII {
     }
 
     public ListNode deleteDuplicates(ListNode head) {
-
+        ListNode dummyDup = new ListNode(-1);
+        ListNode dummyUniq = new ListNode(-1);
+        ListNode p = head ;
+        ListNode dup = dummyDup ;
+        ListNode uniq = dummyUniq ;
+        while(null != p){
+            if((p.next != null && p.val == p.next.val) || p.val == dup.val){
+                dup.next = p ;
+                dup = dup.next ;
+            }else{
+                uniq.next = p;
+                uniq = uniq.next ;
+            }
+            p = p.next ;
+            dup.next = null;
+            uniq.next = null;
+        }
+        return dummyUniq.next;
     }
 
 }

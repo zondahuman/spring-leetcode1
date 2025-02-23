@@ -17,8 +17,10 @@ public class EightSixPartitionList {
     }
     public ListNode partition(ListNode head, int x) {
         ListNode p = head;
-        ListNode p1 = new ListNode(-1);
-        ListNode p2 = new ListNode(-1);
+        ListNode dummy1 = new ListNode(-1);
+        ListNode dummy2 = new ListNode(-1);
+        ListNode p1 = dummy1;
+        ListNode p2 = dummy2;
         while(null != p){
             if(p.val < x){
                 p1.next = p ;
@@ -27,10 +29,18 @@ public class EightSixPartitionList {
                 p2.next = p ;
                 p2 = p2.next;
             }
+            ListNode temp = p.next;
+            p.next = null;
+            p = temp;
         }
-        
-        return null;
+        p1.next = dummy2.next;
+        return dummy1.next;
     }
+
+
+
+
+
 
 
 }

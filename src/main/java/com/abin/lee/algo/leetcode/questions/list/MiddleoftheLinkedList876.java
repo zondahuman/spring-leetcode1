@@ -4,7 +4,7 @@ package com.abin.lee.algo.leetcode.questions.list;
  * 876. Middle of the Linked List	876. 链表的中间结点
  * https://leetcode.cn/problems/middle-of-the-linked-list/description/
  */
-public class EightSevenSixMiddleoftheLinkedList {
+public class MiddleoftheLinkedList876 {
     // Definition for singly-linked list.
     class ListNode {
         int val;

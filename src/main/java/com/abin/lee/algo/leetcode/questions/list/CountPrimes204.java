@@ -16,7 +16,7 @@ public class CountPrimes204 {
     // Definition for singly-linked list.
     class ListNode {
         int val;
-        TwoThreeMergekSortedLists.ListNode next;
+        ListNode next;
 
         ListNode(int x) {
             val = x;

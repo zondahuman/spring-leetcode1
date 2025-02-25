@@ -36,13 +36,13 @@ public class TwoZeroFourCountPrimes {
         Arrays.fill(isPrime , true);
         for (int i = 2; i <n ; i++) {
             if(isPrime[i]){
-                for (int j = i; j <n ; j+=i) {
+                for (int j = 2*i; j <n ; j+=i) {
                     isPrime[j] = false;
                 }
             }
         }
         int count = 0;
-        for (int i = 0; i <n ; i++) {
+        for (int i = 2; i <n ; i++) {
             if(isPrime[i]){
                 count++;
             }
@@ -55,8 +55,9 @@ public class TwoZeroFourCountPrimes {
     @Test
     public void test1(){
         int count = 10 ;
-//        int result = countPrimes(count) ;
-        int result = countPrimesLa(count) ;
+        int result = countPrimes(count) ;
+//        int result = countPrimesLa(count) ;
+        System.out.println("result="+result);
     }
 
 

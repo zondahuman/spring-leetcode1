@@ -1,5 +1,7 @@
 package com.abin.lee.algo.leetcode.questions.list;
 
+import org.junit.Test;
+
 /**
  * 264. Ugly Number II
  * https://leetcode.com/problems/ugly-number-ii/description/
@@ -30,7 +32,7 @@ public class TwoSixFourUglyNumberII {
     public int nthUglyNumber(int n) {
         int p2 = 1, p3 = 1, p5 = 1;
         int product2 = 1, product3 = 1, product5 = 1;
-        int[] ugly = new int[n];
+        int[] ugly = new int[n+1];
         int p = 1;
         while (p <= n) {
             int min = Math.min(Math.min(product2, product3), product5);
@@ -45,12 +47,19 @@ public class TwoSixFourUglyNumberII {
                 p3++;
             }
             if (min == product5) {
-                product5 = 5 * ugly[5];
+                product5 = 5 * ugly[p5];
                 p5++;
             }
         }
         return ugly[n];
     }
 
+
+    @Test
+    public void test1() {
+        int count = 10;
+        int result = nthUglyNumber(count);
+        System.out.println("result=" + result);
+    }
 
 }

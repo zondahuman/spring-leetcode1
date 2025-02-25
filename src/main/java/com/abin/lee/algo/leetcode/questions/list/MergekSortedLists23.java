@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
  * 23. Merge k Sorted Lists	23. 合并K个升序链表
  * https://leetcode.cn/problems/merge-k-sorted-lists/
  */
-public class TwoThreeMergekSortedLists {
+public class MergekSortedLists23 {
     // Definition for singly-linked list.
     class ListNode {
         int val;

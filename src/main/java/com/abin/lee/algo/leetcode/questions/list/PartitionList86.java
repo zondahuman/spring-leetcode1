@@ -4,7 +4,7 @@ package com.abin.lee.algo.leetcode.questions.list;
  * 86. Partition List	86. 分隔链表
  * https://leetcode.cn/problems/partition-list/description/
  */
-public class EightSixPartitionList {
+public class PartitionList86 {
     // Definition for singly-linked list.
     class ListNode {
         int val;

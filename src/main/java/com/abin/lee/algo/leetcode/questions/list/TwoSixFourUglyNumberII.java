@@ -2,6 +2,10 @@ package com.abin.lee.algo.leetcode.questions.list;
 
 import org.junit.Test;
 
+import java.util.HashSet;
+import java.util.PriorityQueue;
+import java.util.Set;
+
 /**
  * 264. Ugly Number II
  * https://leetcode.com/problems/ugly-number-ii/description/
@@ -62,4 +66,24 @@ public class TwoSixFourUglyNumberII {
         System.out.println("result=" + result);
     }
 
+
+    public int nthUglyNumberByPriority(int n) {
+        int[] factors = new int[]{2,3,5};
+        Set<Long> sets = new HashSet<Long>();
+        PriorityQueue<Long> priorityQueue = new PriorityQueue();
+        priorityQueue.offer(1L);
+        sets.add(1L) ;
+        int ugly = 0 ;
+        for (int i = 0; i <n ; i++) {
+            long cur = priorityQueue.poll();
+            ugly = (int) cur;
+            for(int factor: factors){
+                long next = factor * cur ;
+                if(sets.add(next)){
+                    priorityQueue.offer(next);
+                }
+            }
+        }
+        return ugly;
+    }
 }

@@ -13,11 +13,11 @@ import java.util.Set;
  * https://leetcode.cn/problems/ugly-number-ii/description/
  * https://labuladong.online/algo/problem-set/linkedlist-two-pointers/
  */
-public class TwoSixFourUglyNumberII {
+public class UglyNumberII264 {
     // Definition for singly-linked list.
     class ListNode {
         int val;
-        TwoThreeMergekSortedLists.ListNode next;
+        ListNode next;
 
         ListNode(int x) {
             val = x;

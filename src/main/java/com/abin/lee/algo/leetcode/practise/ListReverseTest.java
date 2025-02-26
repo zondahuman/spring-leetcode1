@@ -40,6 +40,22 @@ public class ListReverseTest {
         System.out.println("listNode=" + JsonUtil.toJson(listNode));
     }
 
+    @Test
+    public void test2() {
+        ListNode l1 = new ListNode(1);
+        ListNode l12 = new ListNode(2);
+        ListNode l13 = new ListNode(3);
+        ListNode l14 = new ListNode(4);
+        l1.next = l12;
+        l12.next = l13;
+        l13.next = l14;
+
+        ListNode listNode = reverseList(l1);
+
+        listNode.next.next = listNode ;
+
+        System.out.println("listNode=" + JsonUtil.toJson(listNode));
+    }
 
 
 

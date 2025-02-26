@@ -37,8 +37,14 @@ public class PalindromeLinkedList234 {
         if(null != fast)
             slow = slow.next;
         ListNode left = head ;
-//        ListNode right = reverse();
-        return false;
+        ListNode right = reverse(slow);
+        while(null != right){
+            if(left.val  != right.val)
+                return false ;
+            left = left.next;
+            right = right.next ;
+        }
+        return true;
     }
 
     public ListNode reverse(ListNode head){
@@ -54,6 +60,39 @@ public class PalindromeLinkedList234 {
     }
 
 
+
+    public boolean isPalindrome2(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head ;
+        while(null != fast && null != fast.next){
+            slow = slow.next ;
+            fast = fast.next.next;
+        }
+        if(null != fast)
+            slow = slow.next ;
+        ListNode left = head ;
+        ListNode right = null;
+
+        ListNode cur = slow ;
+        while(null != cur){
+            ListNode next = cur.next;
+            cur.next = right ;
+            right = cur ;
+            cur = next ;
+        }
+
+        while(null != right){
+            if(left.val  != right.val)
+                return false ;
+            left = left.next ;
+            right = right.next ;
+        }
+        return true ;
+    }
+
+
+
+
     @Test
     public void test1() {
         ListNode l1 = new ListNode(1);
@@ -64,7 +103,8 @@ public class PalindromeLinkedList234 {
         l12.next = l13;
         l13.next = l14;
 
-        Boolean flag = isPalindrome(l1);
+//        Boolean flag = isPalindrome(l1);
+        Boolean flag = isPalindrome2(l1);
         System.out.println("flag=" + flag);
     }
 

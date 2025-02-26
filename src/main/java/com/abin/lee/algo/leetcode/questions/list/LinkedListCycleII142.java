@@ -4,7 +4,7 @@ package com.abin.lee.algo.leetcode.questions.list;
  * 142. Linked List Cycle II	142. 环形链表 II
  * https://leetcode.cn/problems/linked-list-cycle-ii/description/
  */
-public class OneFourTwoLinkedListCycleII {
+public class LinkedListCycleII142 {
     // Definition for singly-linked list.
     class ListNode {
         int val;

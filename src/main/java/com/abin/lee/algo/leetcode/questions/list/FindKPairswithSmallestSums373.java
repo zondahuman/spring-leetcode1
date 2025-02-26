@@ -49,7 +49,7 @@ public class FindKPairswithSmallestSums373 {
             k--;
             int next = cur[2]+1;
             if(next < nums2.length){
-                priorityQueue.offer(new int[]{nums1[cur[0]], nums2[next],next});
+                priorityQueue.offer(new int[]{cur[0], nums2[next],next});
             }
             List<Integer> pair = new ArrayList<>();
             pair.add(cur[0]);
@@ -65,8 +65,8 @@ public class FindKPairswithSmallestSums373 {
         int k = 3;
         int[] matrix1 = new int[]{1,7,11};
         int[] matrix2 = new int[]{2,4,6};
-//        List<List<Integer>> list = kSmallestPairs(matrix1, matrix2, k);
-        List<List<Integer>> list = kSmallestPairs2(matrix1, matrix2, k);
+        List<List<Integer>> list = kSmallestPairs(matrix1, matrix2, k);
+//        List<List<Integer>> list = kSmallestPairs2(matrix1, matrix2, k);
         System.out.println("list=" + JsonUtil.toJson(list));
     }
 

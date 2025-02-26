@@ -1,10 +1,11 @@
 package com.abin.lee.algo.leetcode.questions.list;
 
 /**
- * 19. Remove Nth Node From End of List	19. 删除链表的倒数第 N 个结点
+ * 19. Remove Nth Node From End of List
+ * 19. 删除链表的倒数第 N 个结点
  * https://leetcode.cn/problems/remove-nth-node-from-end-of-list/description/
  */
-public class OneNineRemoveNthNodeFromEndofList {
+public class RemoveNthNodeFromEndofList19 {
 
     // Definition for singly-linked list.
     class ListNode {

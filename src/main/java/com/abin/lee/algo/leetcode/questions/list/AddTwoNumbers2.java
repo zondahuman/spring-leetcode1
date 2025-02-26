@@ -4,7 +4,7 @@ import com.abin.lee.algo.util.JsonUtil;
 import org.junit.Test;
 
 /**
- * 2. Add Two Numbers
+ * 2. 两数相加
  * https://leetcode.cn/problems/add-two-numbers/description/
  * 2. Add Two Numbers
  * https://leetcode.com/problems/add-two-numbers/description/

@@ -37,6 +37,16 @@ public class ReverseLinkedList206 {
         return pre;
     }
 
+    public ListNode reverseList2(ListNode head) {
+        if(null == head || null == head.next)
+            return head;
+        ListNode last = reverseList(head.next);
+        head.next.next = head ;
+        head.next = null;
+        return last ;
+    }
+
+
     @Test
     public void test1() {
         ListNode l1 = new ListNode(1);
@@ -49,7 +59,8 @@ public class ReverseLinkedList206 {
         l13.next = l14;
         l14.next = l15;
 
-        ListNode listNode = reverseList(l1);
+//        ListNode listNode = reverseList(l1);
+        ListNode listNode = reverseList2(l1);
         System.out.println("listNode=" + JsonUtil.toJson(listNode));
     }
 

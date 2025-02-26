@@ -6,7 +6,7 @@ package com.abin.lee.algo.leetcode.questions.list;
  * 83. Remove Duplicates from Sorted List
  * https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/
  */
-public class EightThreeRemoveDuplicatesfromSortedList {
+public class RemoveDuplicatesfromSortedList83 {
     // Definition for singly-linked list.
     class ListNode {
         int val;

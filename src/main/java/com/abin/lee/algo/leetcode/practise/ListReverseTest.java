@@ -39,15 +39,17 @@ public class ListReverseTest {
             return head ;
         ListNode pre, cur, nxt;
         pre = null; cur = head; nxt = head.next;
-        while(null != nxt && n > 0){
+        while(n > 0){
             cur.next = pre ;
             pre = cur ;
             cur = nxt ;
-            nxt = nxt.next ;
+            if(null != nxt){
+                nxt = nxt.next;
+            }
             n--;
         }
         head.next = cur;
-        return  head;
+        return  pre;
     }
 
     
@@ -82,7 +84,7 @@ public class ListReverseTest {
 
 
     @Test
-    public void test3() {
+    public void testReverseN() {
         ListNode l1 = new ListNode(1);
         ListNode l12 = new ListNode(2);
         ListNode l13 = new ListNode(3);

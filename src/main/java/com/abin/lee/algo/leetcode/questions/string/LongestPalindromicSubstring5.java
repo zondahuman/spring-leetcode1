@@ -36,7 +36,7 @@ public class LongestPalindromicSubstring5 {
         return s.substring(left+1, right);
     }
 
-   
+
 
     @Test
     public void test1() {

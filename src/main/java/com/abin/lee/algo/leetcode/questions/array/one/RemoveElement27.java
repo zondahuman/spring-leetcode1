@@ -1,4 +1,4 @@
-package com.abin.lee.algo.leetcode.questions.array;
+package com.abin.lee.algo.leetcode.questions.array.one;
 
 /**
  * 27. 移除元素

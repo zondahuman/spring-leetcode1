@@ -1,4 +1,4 @@
-package com.abin.lee.algo.leetcode.questions.array;
+package com.abin.lee.algo.leetcode.questions.array.one;
 
 import java.util.HashSet;
 import java.util.Iterator;

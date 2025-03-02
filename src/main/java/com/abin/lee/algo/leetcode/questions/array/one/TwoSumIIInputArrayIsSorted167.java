@@ -1,4 +1,4 @@
-package com.abin.lee.algo.leetcode.questions.array;
+package com.abin.lee.algo.leetcode.questions.array.one;
 
 import com.abin.lee.algo.leetcode.questions.list.AddTwoNumbers2;
 import com.abin.lee.algo.util.JsonUtil;

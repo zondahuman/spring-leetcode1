@@ -37,7 +37,7 @@ public class RotateList61 {
         }
         k %= n;
         if (k == 0)
-            return null;
+            return head;
         ListNode temp = head;
         for (int i = 0; i < k; i++) {
             if (null != temp) {

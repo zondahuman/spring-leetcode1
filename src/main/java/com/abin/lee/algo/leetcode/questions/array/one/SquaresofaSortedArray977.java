@@ -6,6 +6,7 @@ import org.junit.Test;
 /**
  * 977. 有序数组的平方
  * https://leetcode.cn/problems/squares-of-a-sorted-array/description/
+ * https://labuladong.online/algo/problem-set/array-two-pointers/
  */
 public class SquaresofaSortedArray977 {
     /**

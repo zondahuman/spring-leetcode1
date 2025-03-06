@@ -57,7 +57,6 @@ public class MinimumWindowSubstring76 {
                         valid--;
                     window.put(d, window.get(d)-1);
                 }
-
             }
         }
         return len == Integer.MAX_VALUE ? "" : s.substring(start, start+len);

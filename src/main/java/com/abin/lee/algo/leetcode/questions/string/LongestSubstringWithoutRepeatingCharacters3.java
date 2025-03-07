@@ -3,6 +3,9 @@ package com.abin.lee.algo.leetcode.questions.string;
 import com.abin.lee.algo.util.JsonUtil;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 3. 无重复字符的最长子串
  * https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/
@@ -16,7 +19,18 @@ public class LongestSubstringWithoutRepeatingCharacters3 {
      * @return
      */
     public int lengthOfLongestSubstring(String s) {
-
+        Map<Character, Integer> window = new HashMap<>();
+        int left = 0 , right = 0;
+        int result = 0;
+        while(right < s.length()){
+            char c = s.charAt(right);
+            right++;
+            window.put(c, window.getOrDefault(c, 0)+1);
+            while(window.get(c)>1){
+                char d = s.charAt(left);
+                
+            }
+        }
         return 0;
     }
 

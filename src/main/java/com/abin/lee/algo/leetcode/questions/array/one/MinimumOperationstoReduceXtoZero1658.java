@@ -1,4 +1,4 @@
-package com.abin.lee.algo.leetcode.questions.string;
+package com.abin.lee.algo.leetcode.questions.array.one;
 
 import com.abin.lee.algo.util.JsonUtil;
 import org.junit.Test;

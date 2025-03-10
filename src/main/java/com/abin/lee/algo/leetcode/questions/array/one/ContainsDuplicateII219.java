@@ -3,6 +3,9 @@ package com.abin.lee.algo.leetcode.questions.array.one;
 import com.abin.lee.algo.util.JsonUtil;
 import org.junit.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 219. 存在重复元素 II
  * https://leetcode.cn/problems/contains-duplicate-ii/description/
@@ -30,14 +33,15 @@ public class ContainsDuplicateII219 {
      */
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         int left = 0, right = 0;
+        Set<Integer> window = new HashSet<>();
         while (right < nums.length) {
-            int rvalue = nums[right];
+            if(window.contains(nums[right])){
+                return true;
+            }
+            window.add(nums[right]);
             right++;
             while(right-left>k){
-                int lvalue = nums[left];
-                if(rvalue == lvalue ){
-                    return true;
-                }
+                window.remove(nums[left]) ;
                 left++;
             }
         }
@@ -46,10 +50,12 @@ public class ContainsDuplicateII219 {
 
     @Test
     public void test1() {
-//        int[] array = new int[]{1,2,3,1};
-//        int target = 3 ;
-        int[] array = new int[]{1,2,3,1,2,3};
-        int target = 2 ;
+        int[] array = new int[]{1,2,3,1};
+        int target = 3 ;
+//        int[] array = new int[]{1,2,3,1,2,3};
+//        int target = 2 ;
+//        int[] array = new int[]{99,99};
+//        int target = 2 ;
         boolean result = containsNearbyDuplicate(array, target);
         System.out.println("result=" + JsonUtil.toJson(result));
     }

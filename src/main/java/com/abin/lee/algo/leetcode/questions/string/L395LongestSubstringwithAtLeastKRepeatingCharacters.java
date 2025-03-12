@@ -32,12 +32,12 @@ public class L395LongestSubstringwithAtLeastKRepeatingCharacters {
     public int longestSubstring(String s, int k) {
         int len = 0;
         for (int i = 1; i <= 26; i++) {
-            len = Math.max(len, longestSubstring(s, k, i));
+            len = Math.max(len, logestKLetterSubstr(s, k, i));
         }
         return len;
     }
 
-    public int longestSubstring(String s, int k, int count) {
+    public int logestKLetterSubstr(String s, int k, int count) {
         int left = 0, right = 0;
         int[] windowCount = new int[26];
         int windowUniqueCount = 0;
@@ -58,6 +58,7 @@ public class L395LongestSubstringwithAtLeastKRepeatingCharacters {
                 windowCount[d - 'a']--;
                 if(windowCount[d-'a'] == 0)
                     windowUniqueCount--;
+                left++;
             }
             if(windowValidCount == count) {
                 result = Math.max(result, right - left);
@@ -70,10 +71,12 @@ public class L395LongestSubstringwithAtLeastKRepeatingCharacters {
 
     @Test
     public void test1() {
-        String str1 = "aaabb";
-        int k = 3;
+//        String str1 = "aaabb";
+//        int k = 3;
+//        int result = longestSubstring(str1, k);
+        String str1 = "ababbc";
+        int k = 2;
         int result = longestSubstring(str1, k);
-//        String result = longestPalindrome2(str1);
         System.out.println("result=" + JsonUtil.toJson(result));
     }
 

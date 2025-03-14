@@ -1,5 +1,8 @@
 package com.abin.lee.algo.leetcode.questions.array.one;
 
+import com.abin.lee.algo.util.JsonUtil;
+import org.junit.Test;
+
 /**
  * 875. 爱吃香蕉的珂珂
  * https://leetcode.cn/problems/koko-eating-bananas/description/
@@ -16,10 +19,41 @@ public class L875KokoEatingBananas {
      * @return
      */
     public int minEatingSpeed(int[] piles, int h) {
+        int left = 0, right = piles.length;
+        while(left < right){
+            int mid = left + (right-left)/2;
+            if(func(piles, mid) >= h){
+                right = mid;
+            }else{
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
 
-        return 0;
+    // f(x)函数计算给定速度x下吃完所有香蕉所需的总小时数
+    public int func(int[] piles, int x){
+        int hours = 0; // 初始化总小时数
+        for (int i = 0; i <piles.length ; i++) {// 遍历每堆香蕉
+            hours += piles[i]/x; // 每堆香蕉按当前速度x吃掉需要的时间
+            if(piles[i] % x >0){ // 如果不能整除，说明这堆香蕉最后还需要额外一个小时才能吃完
+                hours++; // 增加一小时
+            }
+        }
+        return hours; // 返回总小时数
     }
 
 
+    @Test
+    public void minEatingSpeed() {
+        int[] array = new int[]{3,6,7,11};
+        int target = 4 ;
+//        int[] array = new int[]{30,11,23,4,20};
+//        int target = 30 ;
+//        int[] array = new int[]{30,11,23,4,20};
+//        int target = 23 ;
+        int result = minEatingSpeed(array, target);
+        System.out.println("result=" + JsonUtil.toJson(result));
+    }
 
 }

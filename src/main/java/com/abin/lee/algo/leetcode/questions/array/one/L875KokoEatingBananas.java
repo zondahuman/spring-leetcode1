@@ -22,7 +22,7 @@ public class L875KokoEatingBananas {
         int left = 1, right = 1000000000 + 1;
         while(left < right){
             int mid = left + (right-left)/2;
-            if(func(piles, mid) >= h){
+            if(func(piles, mid) <= h){
                 right = mid;
             }else{
                 left = mid + 1;
@@ -45,13 +45,13 @@ public class L875KokoEatingBananas {
 
 
     @Test
-    public void minEatingSpeed() {
-        int[] array = new int[]{3,6,7,11};
-        int target = 4 ;
+    public void testMinEatingSpeed() {
+//        int[] array = new int[]{3,6,7,11};
+//        int target = 8 ;
 //        int[] array = new int[]{30,11,23,4,20};
-//        int target = 30 ;
-//        int[] array = new int[]{30,11,23,4,20};
-//        int target = 23 ;
+//        int target = 5 ;
+        int[] array = new int[]{30,11,23,4,20};
+        int target = 6 ;
         int result = minEatingSpeed(array, target);
         System.out.println("result=" + JsonUtil.toJson(result));
     }

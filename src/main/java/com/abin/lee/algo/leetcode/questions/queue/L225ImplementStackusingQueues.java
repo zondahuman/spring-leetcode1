@@ -7,6 +7,7 @@ import java.util.Queue;
  * 225. 用队列实现栈
  * https://leetcode.cn/problems/implement-stack-using-queues/description/
  * https://labuladong.online/algo/data-structure/stack-queue/
+ * leetcode 225 java
  */
 public class L225ImplementStackusingQueues {
 

@@ -3,6 +3,7 @@ package com.abin.lee.algo.leetcode.questions.array.one;
 /**
  * 303. 区域和检索 - 数组不可变
  * https://leetcode.cn/problems/range-sum-query-immutable/description/
+ * https://labuladong.online/algo/data-structure/prefix-sum/
  */
 public class L303RangeSumQueryImmutable {
 

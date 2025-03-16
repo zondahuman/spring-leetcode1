@@ -57,6 +57,7 @@ public class MyStackOneList {
 
     public static void main(String[] args) {
         MyStackOneList myStack = new MyStackOneList();
+        System.out.println("inialize--listNode="+ JsonUtil.toJson(myStack.listNode));
         myStack.push(1);
         myStack.push(2);
         myStack.push(3);

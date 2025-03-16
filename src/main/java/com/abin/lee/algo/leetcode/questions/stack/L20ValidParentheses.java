@@ -1,5 +1,8 @@
 package com.abin.lee.algo.leetcode.questions.stack;
 
+import com.abin.lee.algo.util.JsonUtil;
+import org.junit.Test;
+
 import java.util.Stack;
 
 /**
@@ -32,5 +35,14 @@ public class L20ValidParentheses {
             return '{';
         return '[';
     }
+
+
+    @Test
+    public void test1() {
+        String str1 = "()[]{}";
+        boolean result = isValid(str1);
+        System.out.println("result=" + JsonUtil.toJson(result));
+    }
+
 
 }

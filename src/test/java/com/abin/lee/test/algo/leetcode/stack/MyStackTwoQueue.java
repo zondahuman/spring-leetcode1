@@ -1,4 +1,4 @@
-package com.abin.lee.test.algo.leetcode.queue;
+package com.abin.lee.test.algo.leetcode.stack;
 
 import java.util.LinkedList;
 import java.util.Queue;

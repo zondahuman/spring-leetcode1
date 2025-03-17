@@ -39,7 +39,7 @@ public class L20ValidParentheses {
 
     @Test
     public void test1() {
-        String str1 = "()[]{}";
+        String str1 = "()[]{},";
         boolean result = isValid(str1);
         System.out.println("result=" + JsonUtil.toJson(result));
     }

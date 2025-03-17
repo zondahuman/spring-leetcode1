@@ -2,6 +2,9 @@ package com.abin.lee.algo.leetcode.questions.tree.binary;
 
 import org.junit.Test;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 104. 二叉树的最大深度
  * https://leetcode.cn/problems/maximum-depth-of-binary-tree/description/
@@ -11,6 +14,7 @@ public class L104MaximumDepthofBinaryTree {
     /**
      * 给定一个二叉树 root ，返回其最大深度。
      * 二叉树的 最大深度 是指从根节点到最远叶子节点的最长路径上的节点数。
+     *
      * @param root
      * @return
      */
@@ -25,8 +29,21 @@ public class L104MaximumDepthofBinaryTree {
     public int maxDepth2(TreeNode root) {
         if (null == root)
             return 0;
-       
-        return 0;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int length = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode treeNode = queue.poll();
+                if (treeNode.left != null)
+                    queue.offer(treeNode.left);
+                if (treeNode.right != null)
+                    queue.offer(treeNode.right);
+            }
+            length++;
+        }
+        return length;
     }
 
     // 你可以这样构建一棵二叉树：
@@ -57,6 +74,8 @@ public class L104MaximumDepthofBinaryTree {
         TreeNode treeNode = createTreeNode();
         int result = maxDepth(treeNode);
         System.out.println("result=" + result);
+        int result2 = maxDepth2(treeNode);
+        System.out.println("result2=" + result2);
     }
 
 

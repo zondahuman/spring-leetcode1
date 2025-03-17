@@ -20,9 +20,9 @@ public class L2073TimeNeededtoBuyTickets {
         int result = 0;
         for (int i = 0; i <n ; i++) {
             if(i<=k){
-                result = Math.min(tickets[i], tickets[k]);
+                result += Math.min(tickets[i], tickets[k]);
             }else{
-                result = Math.min(tickets[i], tickets[k-1]);
+                result += Math.min(tickets[i], tickets[k-1]);
             }
         }
         return result;

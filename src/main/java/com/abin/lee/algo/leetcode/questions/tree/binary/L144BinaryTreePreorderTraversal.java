@@ -43,8 +43,12 @@ public class L144BinaryTreePreorderTraversal {
 
     public List<Integer> preorderTraversal2(TreeNode root) {
         List<Integer> resultList = new ArrayList<>();
-
-        return list;
+        if(null == root)
+            return resultList;
+        resultList.add(root.val);
+        resultList.addAll(preorderTraversal2(root.left));
+        resultList.addAll(preorderTraversal2(root.right));
+        return resultList;
     }
 
 
@@ -63,26 +67,26 @@ public class L144BinaryTreePreorderTraversal {
 // 4   7  5   6
 //      \
 //       9
-    public L104MaximumDepthofBinaryTree.TreeNode createTreeNode() {
-        L104MaximumDepthofBinaryTree.TreeNode root = new L104MaximumDepthofBinaryTree.TreeNode(1);
-        root.left = new L104MaximumDepthofBinaryTree.TreeNode(2);
-        root.left.left = new L104MaximumDepthofBinaryTree.TreeNode(4);
-        root.left.right = new L104MaximumDepthofBinaryTree.TreeNode(7);
-        root.left.right.right = new L104MaximumDepthofBinaryTree.TreeNode(9);
+    public TreeNode createTreeNode() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(7);
+        root.left.right.right = new TreeNode(9);
 
-        root.right = new L104MaximumDepthofBinaryTree.TreeNode(3);
-        root.right.left = new L104MaximumDepthofBinaryTree.TreeNode(5);
-        root.right.right = new L104MaximumDepthofBinaryTree.TreeNode(6);
+        root.right = new TreeNode(3);
+        root.right.left = new TreeNode(5);
+        root.right.right = new TreeNode(6);
         return root;
     }
 
 
     @Test
     public void test() {
-        L104MaximumDepthofBinaryTree.TreeNode treeNode = createTreeNode();
-        int result = maxDepth(treeNode);
+        TreeNode treeNode = createTreeNode();
+        List<Integer> result = preorderTraversal(treeNode);
         System.out.println("result=" + result);
-        int result2 = maxDepth2(treeNode);
+        List<Integer> result2 = preorderTraversal2(treeNode);
         System.out.println("result2=" + result2);
     }
 

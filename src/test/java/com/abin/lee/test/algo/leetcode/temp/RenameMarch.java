@@ -9,8 +9,8 @@ public class RenameMarch {
 
     public static void main(String[] args) {
         // 指定要查找的目录路径
-        String directoryPath = "/Users/lee/work"; // 请替换为你的实际目录路径
-        String newDirectoryPath = "/Users/lee/work/"; // 请替换为你的实际目录路径
+        String directoryPath = "/Users/lee/jiujiu/DIYrec"; // 请替换为你的实际目录路径
+        String newDirectoryPath = "/Users/lee/jiujiu/newDIYrec/"; // 请替换为你的实际目录路径
 
         // 使用File类表示目录
         File directory = new File(directoryPath);

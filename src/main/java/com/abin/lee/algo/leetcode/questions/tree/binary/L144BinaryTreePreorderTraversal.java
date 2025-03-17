@@ -22,8 +22,10 @@ public class L144BinaryTreePreorderTraversal {
         }
     }
     List<Integer> list = new ArrayList<>();
+
     /**
      * 给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
+     *
      * @param root
      * @return
      */
@@ -32,12 +34,32 @@ public class L144BinaryTreePreorderTraversal {
         return list;
     }
 
-    void traverse(TreeNode root){
-        if(null == root)
+    void traverse(TreeNode root) {
+        if (null == root)
             return;
         list.add(root.val);
         preorderTraversal(root.left);
         preorderTraversal(root.right);
+    }
+
+
+    /**
+     * 给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
+     * @param root
+     * @return
+     */
+    public List<Integer> preorderTraversal3(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        traverse3(root, list);
+        return list;
+    }
+
+    void traverse3(TreeNode root, List<Integer> list){
+        if(null == root)
+            return;
+        list.add(root.val);
+        traverse3(root.left, list);
+        traverse3(root.right, list);
     }
 
 
@@ -88,6 +110,8 @@ public class L144BinaryTreePreorderTraversal {
         System.out.println("result=" + result);
         List<Integer> result2 = preorderTraversal2(treeNode);
         System.out.println("result2=" + result2);
+        List<Integer> result3 = preorderTraversal3(treeNode);
+        System.out.println("result3=" + result3);
     }
 
 

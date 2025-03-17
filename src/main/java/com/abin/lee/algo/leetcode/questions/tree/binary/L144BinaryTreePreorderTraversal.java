@@ -3,6 +3,8 @@ package com.abin.lee.algo.leetcode.questions.tree.binary;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -73,6 +75,23 @@ public class L144BinaryTreePreorderTraversal {
         return resultList;
     }
 
+    public List<Integer> preorderTraversal4(TreeNode root) {
+        List<Integer> resultList = new ArrayList<>();
+        if(null == root)
+            return resultList;
+        Deque<TreeNode> deque = new LinkedList<>();
+        TreeNode node = root;
+        while(!deque.isEmpty() || null != node){
+            while(null != node){
+                resultList.add(node.val);
+                deque.add(node);
+                node = node.left;
+            }
+            node = deque.pop();
+            node = node.right;
+        }
+        return resultList;
+    }
 
 
 
@@ -112,6 +131,8 @@ public class L144BinaryTreePreorderTraversal {
         System.out.println("result2=" + result2);
         List<Integer> result3 = preorderTraversal3(treeNode);
         System.out.println("result3=" + result3);
+        List<Integer> result4 = preorderTraversal4(treeNode);
+        System.out.println("result4=" + result4);
     }
 
 

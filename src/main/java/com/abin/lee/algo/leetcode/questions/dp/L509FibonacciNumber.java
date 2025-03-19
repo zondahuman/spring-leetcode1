@@ -36,6 +36,9 @@ public class L509FibonacciNumber {
         int n = 2;
         int result = fib(n);
         System.out.println("result=" + result);
+        int nn = 4;
+        int resultnn = fib(nn);
+        System.out.println("resultnn=" + resultnn);
     }
-    
+
 }

@@ -27,15 +27,13 @@ public class L110BalancedBinaryTree {
 
 
     public boolean isBalanced(TreeNode root) {
-        if (null == root)
-            return true;
+        if (null == root) return true;
         else
             return Math.abs(differ(root.left) - differ(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
     }
 
     int differ(TreeNode root) {
-        if (root == null)
-            return 0;
+        if (root == null) return 0;
         return 1 + Math.max(differ(root.left), differ(root.right));
     }
 

@@ -84,7 +84,7 @@ public class L144BinaryTreePreorderTraversal {
         while(!deque.isEmpty() || null != node){
             while(null != node){
                 resultList.add(node.val);
-                deque.add(node);
+                deque.push(node);
                 node = node.left;
             }
             node = deque.pop();

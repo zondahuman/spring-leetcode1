@@ -60,6 +60,21 @@ public class L543DiameterofBinaryTree {
 
 
 
+    public int diameterOfBinaryTree2(TreeNode root) {
+        depth(root);
+        return maxDiameter;
+    }
+
+    public int depth(TreeNode root){
+        if(null == root)
+            return 0;
+        int left = depth(root.left);
+        int right = depth(root.right);
+        maxDiameter = Math.max(maxDiameter, left+right);
+        return 1+Math.max(left, right);
+    }
+
+
     // 你可以这样构建一棵二叉树：
     // 构建出来的二叉树是这样的：
 //      1
@@ -88,6 +103,8 @@ public class L543DiameterofBinaryTree {
         TreeNode treeNode = createTreeNode();
         Integer result = diameterOfBinaryTree(treeNode);
         System.out.println("result=" + result);
+        Integer result2 = diameterOfBinaryTree2(treeNode);
+        System.out.println("result2=" + result2);
     }
 
 

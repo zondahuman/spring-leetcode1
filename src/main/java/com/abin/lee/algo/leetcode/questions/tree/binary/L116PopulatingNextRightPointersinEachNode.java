@@ -1,5 +1,11 @@
 package com.abin.lee.algo.leetcode.questions.tree.binary;
 
+import com.abin.lee.algo.util.JsonUtil;
+import org.junit.Test;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 116. 填充每个节点的下一个右侧节点指针
  * https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/description/
@@ -66,5 +72,56 @@ public class L116PopulatingNextRightPointersinEachNode {
         traverse(node1.right, node2.left);
     }
 
+
+
+    public Node connect2(Node root) {
+        if(null == root)
+            return null;
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            for (int i = 0; i <size ; i++) {
+                Node node = queue.poll();
+                node.next = queue.peek();
+                if(null != node.left)
+                    queue.offer(node.left);
+                if(null != node.right)
+                    queue.offer(node.right);
+            }
+        }
+        return root;
+    }
+
+    // 你可以这样构建一棵二叉树：
+    // 构建出来的二叉树是这样的：
+//      1
+//    /  \
+//   2    3
+//  / \   / \
+// 4   7  5   6
+//      \
+//       9
+    public Node createTreeNode() {
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.left.left = new Node(4);
+        root.left.right = new Node(7);
+        root.left.right.right = new Node(9);
+
+        root.right = new Node(3);
+        root.right.left = new Node(5);
+        root.right.right = new Node(6);
+        return root;
+    }
+
+    @Test
+    public void test() {
+        Node treeNode = createTreeNode();
+        Node result = connect(treeNode);
+        System.out.println("result=" + JsonUtil.toJson(result));
+        Node result2 = connect2(treeNode);
+        System.out.println("result2=" + result2);
+    }
 
 }

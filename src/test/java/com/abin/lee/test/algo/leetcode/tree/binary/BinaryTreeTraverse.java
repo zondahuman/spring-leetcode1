@@ -28,7 +28,7 @@ public class BinaryTreeTraverse {
         List list = new LinkedList();
         while(!stack.isEmpty() || root!=null){
             if(root!=null){
-                List.add(root.val);
+                list.add(root.val);
                 if(root.right!=null)
                     stack.push(root.right);
                 root = root.left;
@@ -69,7 +69,7 @@ public class BinaryTreeTraverse {
     public List postorder(TreeNode root){
         TreeNode node = new TreeNode();
         Stack<TreeNode> stack = new Stack();
-        List<Integer> list = new LinkedList();
+        List list = new LinkedList();
         while(!stack.isEmpty() || root!=null){
             if(root!=null){
                 //头插法

@@ -39,6 +39,19 @@ public class L226InvertBinaryTree {
         traverse(root.right);
     }
 
+    public TreeNode invertTree2(TreeNode root) {
+        if(null == root)
+            return null;
+        TreeNode left = invertTree2(root.left);
+        TreeNode right = invertTree2(root.right);
+
+        root.left = right;
+        root.right = left ;
+        return root;
+    }
+
+
+
     // 你可以这样构建一棵二叉树：
     // 构建出来的二叉树是这样的：
 //      1

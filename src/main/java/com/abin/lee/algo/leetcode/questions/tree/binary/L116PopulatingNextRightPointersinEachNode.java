@@ -60,6 +60,7 @@ public class L116PopulatingNextRightPointersinEachNode {
 
     /**
      * 三叉树实现
+     *
      * @param node1
      * @param node2
      */
@@ -73,20 +74,20 @@ public class L116PopulatingNextRightPointersinEachNode {
     }
 
 
-
     public Node connect2(Node root) {
-        if(null == root)
+        if (null == root)
             return null;
         Queue<Node> queue = new LinkedList<>();
         queue.offer(root);
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int size = queue.size();
-            for (int i = 0; i <size ; i++) {
+            for (int i = 0; i < size; i++) {
                 Node node = queue.poll();
-                node.next = queue.peek();
-                if(null != node.left)
+                if (i < size - 1)
+                    node.next = queue.peek();
+                if (null != node.left)
                     queue.offer(node.left);
-                if(null != node.right)
+                if (null != node.right)
                     queue.offer(node.right);
             }
         }

@@ -1,11 +1,12 @@
 package com.abin.lee.test.algo.leetcode.tree.binary;
 
-import com.abin.lee.algo.leetcode.questions.tree.binary.L543DiameterofBinaryTree;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * 二叉树三种遍历
+ */
 public class BinaryTreeTraverse {
     public static class TreeNode {
         int val;

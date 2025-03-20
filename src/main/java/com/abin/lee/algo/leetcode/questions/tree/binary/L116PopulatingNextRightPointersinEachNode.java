@@ -121,7 +121,7 @@ public class L116PopulatingNextRightPointersinEachNode {
         Node result = connect(treeNode);
         System.out.println("result=" + JsonUtil.toJson(result));
         Node result2 = connect2(treeNode);
-        System.out.println("result2=" + result2);
+        System.out.println("result2=" + JsonUtil.toJson(result));
     }
 
 }

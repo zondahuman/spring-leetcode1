@@ -3,6 +3,9 @@ package com.abin.lee.algo.leetcode.questions.tree.binary;
 import com.abin.lee.algo.util.JsonUtil;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 106. 从中序与后序遍历序列构造二叉树
  * https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/
@@ -12,21 +15,32 @@ public class L106ConstructBinaryTreefromInorderandPostorderTraversal {
     public static class TreeNode {
         int val;
         TreeNode left, right;
+
         TreeNode(int val) {
             this.val = val;
         }
     }
-    
+
+    Map<Integer, Integer> request = new HashMap<>();
+
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-
+        for (int i = 0; i < inorder.length; i++) {
+            request.put(inorder[i], i);
+        }
+        return buildBinaryTree(inorder, 0, inorder.length - 1, postorder, 0, postorder.length - 1);
     }
 
-    TreeNode buildBinaryTree(int[] inorder, int preLow, int preHigh,int[] postorder,int inLow, int inHigh){
-
-        
+    TreeNode buildBinaryTree(int[] inorder, int inLow, int inHigh, int[] postorder, int postLow, int postHigh) {
+        if(postLow > postHigh)
+            return null;
+        int maxVal = postorder[postHigh];
+        int index = request.get(maxVal);
+        int leftSide = index - inLow;
+        TreeNode root = new TreeNode(maxVal);
+        root.left = buildBinaryTree(inorder, inLow, index-1, postorder, postLow,  postLow+leftSide-1);
+        root.right = buildBinaryTree(inorder, index+1, inHigh, postorder, postLow+leftSide, postHigh-1);
+        return root;
     }
-
-
 
 
     // 你可以这样构建一棵二叉树：
@@ -55,9 +69,9 @@ public class L106ConstructBinaryTreefromInorderandPostorderTraversal {
 
     @Test
     public void test() {
-        int[] preOrder = new int[]{3,9,20,15,7};
         int[] inOrder = new int[]{9,3,15,20,7};
-        TreeNode result = buildTree(preOrder, inOrder);
+        int[] postOrder = new int[]{9,15,7,20,3};
+        TreeNode result = buildTree(inOrder, postOrder);
         System.out.println("result=" + JsonUtil.toJson(result));
     }
 

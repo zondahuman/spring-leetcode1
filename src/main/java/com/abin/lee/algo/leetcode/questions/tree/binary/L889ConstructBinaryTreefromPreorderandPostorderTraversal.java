@@ -57,11 +57,11 @@ public class L889ConstructBinaryTreefromPreorderandPostorderTraversal {
         int maxVal = preorder[preLow];
         int leftMaxVal = preorder[preLow + 1];
         int index = request.get(leftMaxVal);
-        int leftSide = index - preLow + 1;
+        int leftSide = index - postLow + 1;
 
         TreeNode root = new TreeNode(maxVal);
         root.left = buildBinaryTree(preorder, preLow + 1, preLow + leftSide, postorder, postLow, index);
-        root.right = buildBinaryTree(preorder, preLow + leftSide + 1, postHigh, postorder, index - 1, postHigh);
+        root.right = buildBinaryTree(preorder, preLow + leftSide + 1, preHigh, postorder, index+1, postHigh-1);
         return root;
     }
 

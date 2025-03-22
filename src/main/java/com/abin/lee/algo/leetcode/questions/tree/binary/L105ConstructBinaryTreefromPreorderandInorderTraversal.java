@@ -10,6 +10,7 @@ import java.util.Map;
  * 105. 从前序与中序遍历序列构造二叉树
  * https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/
  * https://labuladong.online/algo/data-structure/binary-tree-part2/
+ * 通过前序中序，或者后序中序遍历结果可以确定唯一一棵原始二叉树，但是通过前序后序遍历结果无法确定唯一的原始二叉树。
  */
 public class L105ConstructBinaryTreefromPreorderandInorderTraversal {
     public static class TreeNode {

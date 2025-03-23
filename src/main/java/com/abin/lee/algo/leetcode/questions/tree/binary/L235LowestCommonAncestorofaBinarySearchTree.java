@@ -30,8 +30,7 @@ public class L235LowestCommonAncestorofaBinarySearchTree {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         int val1 = Math.min(p.val, q.val);
         int val2 = Math.max(p.val, q.val);
-
-        return null;
+        return traverse(root, val1, val2);
     }
 
     TreeNode traverse(TreeNode root, int val1, int val2){
@@ -42,7 +41,6 @@ public class L235LowestCommonAncestorofaBinarySearchTree {
         if(root.val < val1)
             return traverse(root.right, val1, val2);
         return root;
-
     }
 
 

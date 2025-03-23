@@ -1,5 +1,8 @@
 package com.abin.lee.algo.leetcode.questions.tree.binary;
 
+import com.abin.lee.algo.util.JsonUtil;
+import org.junit.Test;
+
 /**
  * 235. 二叉搜索树的最近公共祖先
  * https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/description/
@@ -25,9 +28,58 @@ public class L235LowestCommonAncestorofaBinarySearchTree {
      * @return
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        int val1 = Math.min(p.val, q.val);
+        int val2 = Math.max(p.val, q.val);
 
+        return null;
+    }
+
+    TreeNode traverse(TreeNode root, int val1, int val2){
+        if(null == root)
+            return null;
+        if(root.val > val2)
+            return traverse(root.left, val1, val2);
+        if(root.val < val1)
+            return traverse(root.right, val1, val2);
+        return root;
 
     }
 
 
+    // 你可以这样构建一棵二叉树：
+    // 构建出来的二叉树是这样的：
+//      1
+//    /   \
+//   2      8
+//  / \    /  \
+// 4   5  7     9
+//      \
+//       6
+    public TreeNode createTreeNode() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.left.right.right = new TreeNode(6);
+
+        root.right = new TreeNode(8);
+        root.right.left = new TreeNode(7);
+        root.right.right = new TreeNode(9);
+        root.right.right.right = new TreeNode(10);
+        return root;
+    }    
+
+    @Test
+    public void test() {
+        TreeNode root = createTreeNode();
+        TreeNode treeNode1 = new TreeNode(4);
+        TreeNode treeNode2 = new TreeNode(6);
+        TreeNode result = lowestCommonAncestor(root, treeNode1, treeNode2);
+        System.out.println("result=" + JsonUtil.toJson(result));
+    }
+
+    
+    
+    
+    
 }

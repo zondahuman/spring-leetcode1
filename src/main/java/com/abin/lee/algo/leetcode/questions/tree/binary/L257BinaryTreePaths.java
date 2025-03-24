@@ -31,7 +31,7 @@ public class L257BinaryTreePaths {
             StringBuffer pathSb = new StringBuffer(path);
             pathSb.append(root.val);
             if(root.left == null && null == root.right){
-                pathSb.append(path);
+                paths.add(pathSb.toString());
             }else{
                 pathSb.append("->");
                 traverse(root.left, pathSb.toString(), paths);
@@ -40,7 +40,7 @@ public class L257BinaryTreePaths {
         }
     }
 
-
+    
 
     // 你可以这样构建一棵二叉树：
     // 构建出来的二叉树是这样的：

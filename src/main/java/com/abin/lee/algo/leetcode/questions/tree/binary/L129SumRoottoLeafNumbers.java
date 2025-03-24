@@ -1,6 +1,7 @@
 package com.abin.lee.algo.leetcode.questions.tree.binary;
 
-import com.sun.org.apache.xpath.internal.operations.String;
+import com.abin.lee.algo.util.JsonUtil;
+import org.junit.Test;
 
 /**
  * 129. 求根节点到叶节点数字之和
@@ -35,13 +36,41 @@ public class L129SumRoottoLeafNumbers {
         builder.append(root.val);
         if(root.left == null && root.right == null){
             result += Integer.parseInt(builder.toString());
-        }else{
-            traverse(root.left);
-            traverse(root.right);
-            builder.deleteCharAt(builder.length()-1);
         }
+        traverse(root.left);
+        traverse(root.right);
+        builder.deleteCharAt(builder.length()-1);
+    }
+
+    // 你可以这样构建一棵二叉树：
+    // 构建出来的二叉树是这样的：
+//      1
+//    /  \
+//   2    3
+//  / \   / \
+// 4   7  5   6
+//      \       \
+//       9       8
+    public TreeNode createTreeNode() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.left.left = new TreeNode(4);
+//        root.left.right = new TreeNode(7);
+//        root.left.right.right = new TreeNode(9);
+
+        root.right = new TreeNode(3);
+        root.right.left = new TreeNode(5);
+//        root.right.right = new TreeNode(6);
+//        root.right.right.right = new TreeNode(8);
+        return root;
     }
 
 
+    @Test
+    public void test() {
+        TreeNode treeNode = createTreeNode();
+        int result = sumNumbers(treeNode);
+        System.out.println("result=" + JsonUtil.toJson(result));
+    }
 
 }

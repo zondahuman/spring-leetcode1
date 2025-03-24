@@ -42,6 +42,24 @@ public class L129SumRoottoLeafNumbers {
         builder.deleteCharAt(builder.length()-1);
     }
 
+
+    public int sumNumbers2(TreeNode root) {
+        return traverseDfs(root, 0);
+    }
+
+    int  traverseDfs(TreeNode root, int prevSum){
+        if(null == root)
+            return 0;
+        int sum = prevSum*10 + root.val;
+        if(null == root.left && root.right == null){
+            return sum;
+        }else{
+            return traverseDfs(root.left, sum) + traverseDfs(root.right, sum);
+        }
+    }
+
+
+
     // 你可以这样构建一棵二叉树：
     // 构建出来的二叉树是这样的：
 //      1

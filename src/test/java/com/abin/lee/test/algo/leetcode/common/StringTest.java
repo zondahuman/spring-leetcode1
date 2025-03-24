@@ -16,7 +16,18 @@ public class StringTest {
         System.out.println("list-last=" + JsonUtil.toJson(builder.toString()));
     }
 
-
+    @Test
+    public void test2() {
+        String str1 = "a";
+        String str2 = "ab";
+        String str3 = "abc";
+        Boolean flag = str1.equals(str2);
+        System.out.println("list-flag=" + JsonUtil.toJson(flag));
+        Integer flag2 = str1.compareTo(str2);
+        System.out.println("str1.compareTo(str2)=" + JsonUtil.toJson(flag2));
+        Integer flag3 = str2.compareTo(str1);
+        System.out.println("str1.compareTo(str2)=" + JsonUtil.toJson(flag3));
+    }
 
 
 

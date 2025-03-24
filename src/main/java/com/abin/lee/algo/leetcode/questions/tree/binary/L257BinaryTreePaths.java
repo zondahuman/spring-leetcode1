@@ -40,7 +40,6 @@ public class L257BinaryTreePaths {
         }
     }
 
-    
 
     // 你可以这样构建一棵二叉树：
     // 构建出来的二叉树是这样的：

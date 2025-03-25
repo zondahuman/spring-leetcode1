@@ -51,6 +51,34 @@ public class L103BinaryTreeZigzagLevelOrderTraversal {
     }
 
 
+    public List<List<Integer>> zigzagLevelOrder2(TreeNode root) {
+        List<List<Integer>> resultList = new LinkedList<>();
+        if(null == root)
+            return resultList;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        boolean flag = false;
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            LinkedList<Integer> list = new LinkedList<>();
+            for (int i = 0; i <size ; i++) {
+                TreeNode node = queue.poll();
+                if(!flag)
+                    list.addLast(node.val);
+                else
+                    list.addFirst(node.val);
+                if(null != node.left)
+                    queue.offer(node.left);
+                if(null != node.right)
+                    queue.offer(node.right);
+            }
+            resultList.add(list);
+            flag = !flag;
+        }
+        return  resultList;
+    }
+
+
     // 你可以这样构建一棵二叉树：
     // 构建出来的二叉树是这样的：
 //      1

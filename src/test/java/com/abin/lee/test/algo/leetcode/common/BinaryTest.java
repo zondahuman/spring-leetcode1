@@ -15,8 +15,9 @@ public class BinaryTest {
         System.out.println("num1 | 0-num3=" + JsonUtil.toJson(num3));
         int num4 = num1 | 1 ;
         System.out.println("num1 | 1-num4=" + JsonUtil.toJson(num4));
-        int num5 = num1 << 1 | 0 ;
-        System.out.println("num1 << 1 | 0-num5=" + JsonUtil.toJson(num5));
+        int num5 = 1 ;
+        int num6 = num5 << 1 | 0 ;
+        System.out.println("num5 << 1 | 0-num6=" + JsonUtil.toJson(num6));
     }
 
 

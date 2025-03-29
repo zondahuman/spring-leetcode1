@@ -1,9 +1,6 @@
 package com.abin.lee.algo.leetcode.questions.tree.nary;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * 589. N 叉树的前序遍历
@@ -97,4 +94,6 @@ public class L589NaryTreePreorderTraversal {
         }
         return resList;
     }
+
+
 }

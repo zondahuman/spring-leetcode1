@@ -36,4 +36,24 @@ public class L559MaximumDepthofNaryTree {
     }
 
 
+    int result = 0;
+    int depth = 0;
+    public int maxDepth2(Node root) {
+        traverse(root);
+        return result;
+    }
+
+    void traverse(Node root){
+        if(null == root)
+            return;
+        depth++;
+        result = Math.max(result, depth);
+        for (Node child:root.children){
+            traverse(child);
+        }
+        depth--;
+    }
+
+
+
 }

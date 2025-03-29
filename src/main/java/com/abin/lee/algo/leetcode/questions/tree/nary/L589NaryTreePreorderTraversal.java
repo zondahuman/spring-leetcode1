@@ -1,6 +1,8 @@
 package com.abin.lee.algo.leetcode.questions.tree.nary;
 
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -78,4 +80,21 @@ public class L589NaryTreePreorderTraversal {
     }
 
 
+
+
+    public List<Integer> preorder4(Node root) {
+        List<Integer> resList = new ArrayList<>();
+        if(null == root)
+            return resList;
+        Deque<Node> deque = new LinkedList<>();
+        deque.push(root);
+        while(!deque.isEmpty() ){
+            Node node = deque.pop();
+            resList.add(node.val);
+            for (int i = node.children.size()-1; i >=0 ; i--) {
+                deque.push(node.children.get(i));
+            }
+        }
+        return resList;
+    }
 }

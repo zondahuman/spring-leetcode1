@@ -61,4 +61,21 @@ public class L589NaryTreePreorderTraversal {
 
 
 
+
+    public List<Integer> preorder3(Node root) {
+        List<Integer> resList = new ArrayList<>();
+        traverse3(root, resList);
+        return resList;
+    }
+
+    public void traverse3(Node root, List<Integer> resList){
+        if(null == root)
+            return;
+        resList.add(root.val);
+        for (Node child:root.children){
+            traverse3(child, resList);
+        }
+    }
+
+
 }

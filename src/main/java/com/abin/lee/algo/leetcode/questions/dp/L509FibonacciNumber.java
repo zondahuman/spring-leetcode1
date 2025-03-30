@@ -68,6 +68,30 @@ public class L509FibonacciNumber {
         return dp[n];
     }
 
+    public int fib4(int n) {
+        if(n == 0)
+            return 0;
+        int dp2 = 0;
+        int dp1 = 1;
+        int dp = 0;
+        for (int i = 2; i <=n ; i++) {
+            dp = dp1 + dp2;
+            dp2 = dp1;
+            dp1 = dp ;
+        }
+        return dp1;
+    }
+
+    @Test
+    public void test4() {
+        int n = 2;
+        int result = fib4(n);
+        System.out.println("result=" + result);
+        int nn = 4;
+        int resultnn = fib4(nn);
+        System.out.println("resultnn=" + resultnn);
+    }
+
 
 
 

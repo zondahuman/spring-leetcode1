@@ -41,4 +41,21 @@ public class L509FibonacciNumber {
         System.out.println("resultnn=" + resultnn);
     }
 
+
+    public int fib2(int n) {
+        int[] memo = new int[n+1];
+        return dp(memo, n);
+    }
+
+    public int dp(int[] memo, int n) {
+        if (n <= 1)
+            return n;
+        if (memo[n] != 0)
+            return memo[n];
+        return dp(memo, n - 1) + dp(memo, n - 2);
+    }
+
+
+
+
 }

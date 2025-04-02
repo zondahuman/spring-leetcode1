@@ -84,13 +84,16 @@ public class L53MaximumSubarray {
     public int maxSubArray4(int[] nums) {
         int n = nums.length ;
         if(0 == n ) return 0;
-        int dp0 = nums[0];
-        int dp1 = 0, result = dp0;
-
-        for (int i = 1; i <n ; i++) {
-            dp1 = Math.max(nums[i], dp0 + nums[i]);
-            dp0 = dp1;
-            result = Math.max(result, dp1);
+        int[] preSum = new int[n+1];
+        preSum[0] = nums[0];
+        for (int i = 1; i <=n ; i++) {
+            preSum[i+1] = preSum[i-1] + nums[i-1];
+        }
+        int minValue = Integer.MAX_VALUE;
+        int result = Integer.MIN_VALUE;
+        for (int i = 0; i <n ; i++) {
+            minValue = Math.min(minValue, preSum[i]);
+            result = Math.max(result, preSum[i+1] - minValue);
         }
         return result;
     }

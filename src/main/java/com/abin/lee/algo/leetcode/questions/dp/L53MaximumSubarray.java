@@ -9,6 +9,7 @@ public class L53MaximumSubarray {
 
 
     /**
+     * 滑动窗口
      * 给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
      * 子数组是数组中的一个连续部分。
      * @param nums
@@ -31,5 +32,27 @@ public class L53MaximumSubarray {
         }
         return maxSum ;
     }
+
+
+    /**
+     * 动态规划
+     * @param nums
+     * @return
+     */
+    public int maxSubArray2(int[] nums) {
+        int n = nums.length ;
+        if(0 == n ) return 0;
+        int[] dp = new int[n];
+        dp[0] = nums[0];
+        for (int i = 1; i <n ; i++) {
+            dp[i] = Math.max(nums[i], dp[i-1] + nums[i]);
+        }
+        int sum = Integer.MIN_VALUE;
+        for (int i = 0; i <n ; i++) {
+            sum = Math.max(sum, dp[i]);
+        }
+        return sum;
+    }
+
 
 }

@@ -87,7 +87,7 @@ public class L53MaximumSubarray {
         int[] preSum = new int[n+1];
         preSum[0] = nums[0];
         for (int i = 1; i <=n ; i++) {
-            preSum[i+1] = preSum[i-1] + nums[i-1];
+            preSum[i] = preSum[i-1] + nums[i-1];
         }
         int minValue = Integer.MAX_VALUE;
         int result = Integer.MIN_VALUE;

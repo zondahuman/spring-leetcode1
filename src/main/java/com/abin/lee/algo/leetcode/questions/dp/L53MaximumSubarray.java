@@ -55,4 +55,25 @@ public class L53MaximumSubarray {
     }
 
 
+
+    /**
+     * 动态规划优化版本
+     * @param nums
+     * @return
+     */
+    public int maxSubArray3(int[] nums) {
+        int n = nums.length ;
+        if(0 == n ) return 0;
+        int dp0 = nums[0];
+        int dp1 = 0, result = dp0;
+
+        for (int i = 1; i <n ; i++) {
+            dp1 = Math.max(nums[i], dp0 + nums[i]);
+            dp0 = dp1;
+            result = Math.max(result, dp1);
+        }
+        return result;
+    }
+
+
 }

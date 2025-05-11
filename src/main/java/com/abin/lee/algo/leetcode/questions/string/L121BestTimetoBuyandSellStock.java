@@ -30,8 +30,8 @@ public class L121BestTimetoBuyandSellStock {
         int n = prices.length;
         int result = Integer.MIN_VALUE;
         for (int i = 1; i <=n ; i++) {
-            int result = 
-            result = Math.max(prices[i], result);
+//            int result =
+//            result = Math.max(prices[i], result);
         }
         return result;
     }
